@@ -7,7 +7,7 @@ module OmniAuth
       option :client_options, {
         :site => 'https://api.outreach.io',
         :authorize_url => "https://api.outreach.io/oauth/authorize",
-        :token_url => "https://api.outreach.io/oauth/token"
+        :token_url => "https://api.outreach.io/oauth/token?redirect_uri=#{options[:redirect_uri]}&grant_type=authorization_code"
       }
 
       uid do
