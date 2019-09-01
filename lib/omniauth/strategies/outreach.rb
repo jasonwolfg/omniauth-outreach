@@ -4,8 +4,10 @@ module OmniAuth
   module Strategies
     class Outreach < OmniAuth::Strategies::OAuth2
       option :name, 'outreach'
-      option :client_options, site: 'https://api.outreach.io'
-
+      option :client_options, {
+        :site => 'https://api.outreach.io',
+        :token_url => 'https://api.outreach.io/oauth/token?'
+      }
       uid do
         raw_info['meta']['user']['email']
       end
