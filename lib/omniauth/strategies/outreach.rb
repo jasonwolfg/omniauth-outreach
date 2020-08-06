@@ -27,7 +27,7 @@ module OmniAuth
       end
 
       def raw_info
-        puts "raw info #{access_token.get('/api/v2').parsed}"
+        puts "raw info #{access_token.get('/api/v2')}"
         @raw_info ||= access_token.get('/api/v2').parsed
       end
 
