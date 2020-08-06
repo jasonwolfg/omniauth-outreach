@@ -17,7 +17,7 @@ module OmniAuth
       info do
         {
           email: raw_info['meta']['user']['email'],
-          api: raw_info['meta']['api']
+          id: raw_info['meta']['user']['id']
         }
       end
 
@@ -28,7 +28,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('/1.0/info').parsed
+        @raw_info ||= access_token.get('api/v2').parsed
       end
 
       # Work-around for https://github.com/intridea/omniauth-oauth2/issues/93.
