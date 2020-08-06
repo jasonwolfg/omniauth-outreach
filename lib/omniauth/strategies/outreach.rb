@@ -11,13 +11,12 @@ module OmniAuth
       }
 
       uid do
-        raw_info['meta']['user']['email']
+        raw_info['meta']['user']['id']
       end
 
       info do
         {
-          email: raw_info['meta']['user']['email'],
-          id: raw_info['meta']['user']['id']
+          email: raw_info['meta']['user']['email']
         }
       end
 
@@ -28,7 +27,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('api/v2').parsed
+        @raw_info ||= access_token.get('/api/v2').parsed
       end
 
       # Work-around for https://github.com/intridea/omniauth-oauth2/issues/93.
